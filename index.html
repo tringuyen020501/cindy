@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Bé có muốn đii chơi với tui hông 🙄</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="index.css" />
+    <style>
+      .center-screen {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      img {
+        width: 350px;
+      }
+      .buttones {
+        width: 100%;
+        text-align: center;
+      }
+      .btn {
+        display: inline-block;
+      }
+      h2 {
+        color: white;
+        font-size: 18px;
+
+        padding-top: 2px;
+        padding-left: 5px;
+        padding-right: 5px;
+      }
+      .mainn a {
+        text-decoration: none;
+        position: absolute;
+        right: 2%;
+        color: red;
+        bottom: 2%;
+      }
+      #nooo {
+        background: transparent;
+        color: red;
+        border: none;
+      }
+      .nooo {
+        color: red;
+        font-weight: 700;
+        font-size: 25px;
+      }
+      /* #nobut {
+        background: red;
+      } */
+      #yesbut {
+        background: green;
+        padding: 10px;
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+      h1 {
+        text-shadow: 0 0 10px rgba(255, 254, 255, 0.68);
+        font-family: cursive;
+        font-weight: 800;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="app"
+      class="center-screen"
+      style="display: flex; flex-direction: column"
+    >
+      <p style="color: #ff69b4; text-align: center; margin-top: 100px">
+        nếu thoát ra hoặc không chọn thì làm vợ tui ha 😝
+      </p>
+      <h1
+        style="
+          text-align: center;
+          margin-bottom: 20px;
+          font-family: Arial, sans-serif;
+          color: #ff69b4;
+        "
+      >
+        Bé đi chơi với tui nhó 😜
+      </h1>
+      <img
+        src="https://raw.githubusercontent.com/DzarelDeveloper/Img/main/Let's%20go.gif"
+        alt=""
+      />
+      <button
+        type="button"
+        class="btn btn-danger"
+        @click="changeText('noButton')"
+        id="nooo"
+      >
+        <h2 class="nooo" @click="changeText('heading') ">
+          {{ currentHeaderText }}
+        </h2>
+      </button>
+      <div class="buttones">
+        <!-- <button
+          type="button"
+          class="btn btn-success mr-2"
+          :style="{ fontSize: yesButtonSize + 'rem' }"
+          :key="yesButtonSize"
+          @click="yesButton"
+          id="yesbut"
+        >
+          Yes
+        </button> -->
+        <button
+          class="btn-yes"
+          type="button"
+          :style="{ fontSize: yesButtonSize + 'rem' }"
+          :key="yesButtonSize"
+          @click="yesButton"
+        >
+          <svg
+            height="32"
+            width="32"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+            class="empty"
+          >
+            <path d="M0 0H24V24H0z" fill="none"></path>
+            <path
+              d="M16.5 3C19.538 3 22 5.5 22 9c0 7-7.5 11-10 12.5C9.5 20 2 16 2 9c0-3.5 2.5-6 5.5-6C9.36 3 11 4 12 5c1-1 2.64-2 4.5-2zm-3.566 15.604c.881-.556 1.676-1.109 2.42-1.701C18.335 14.533 20 11.943 20 9c0-2.36-1.537-4-3.5-4-1.076 0-2.24.57-3.086 1.414L12 7.828l-1.414-1.414C9.74 5.57 8.576 5 7.5 5 5.56 5 4 6.656 4 9c0 2.944 1.666 5.533 4.645 7.903.745.592 1.54 1.145 2.421 1.7.299.189.595.37.934.572.339-.202.635-.383.934-.571z"
+            ></path>
+          </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            width="32"
+            height="32"
+            class="filled"
+          >
+            <path fill="none" d="M0 0H24V24H0z"></path>
+            <path
+              d="M16.5 3C19.538 3 22 5.5 22 9c0 7-7.5 11-10 12.5C9.5 20 2 16 2 9c0-3.5 2.5-6 5.5-6C9.36 3 11 4 12 5c1-1 2.64-2 4.5-2z"
+            ></path>
+          </svg>
+          Yes
+        </button>
+
+        <!-- <button
+          type="button"
+          class="btn btn-danger"
+          @click="changeText('noButton')"
+          id="nobut"
+        >
+          <h2>No</h2>
+        </button> -->
+
+        <button class="btn-no" type="button" @click="changeText('noButton')">
+          No
+        </button>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          headerText: [
+            "",
+            "Em muốn anh đi cùng với em :)",
+            "Hãy đi xem cùng nhau anh nhee",
+            "À, đi thôi, em sẽ mời anh",
+            "Chỉ lần này thôi, đi cùng em đi",
+            "Chỉ có chúng ta hai người, được không?",
+            "Tại sao anh không muốn? Em mời anh, đi thôi",
+            "Đi thôi, em sẽ đến đón anh ",
+            "Đi thôi, đi cùng em đi",
+            "Em muốn anh đi xem phim cùng em",
+            "Đi thôi, chúng ta đi cùng nhau, em sẽ đến đón anh",
+            "Anh có muốn đi cùng em không? Đi thôi",
+            "Như thế nào? Chúng ta chỉ cần xem cùng nhau thôi",
+          ],
+          confirmationMessages: [
+            "Anh chắc chắn chứ?",
+            "Anh chắc chắn anh không muốn đi cùng em chứ?",
+            "Anh chắc chắn tuyệt đối chứ?",
+          ],
+          currentHeaderTextIndex: 0,
+          currentConfirmationIndex: 0,
+          yesButtonSize: 1,
+        },
+        methods: {
+          changeText(button) {
+            if (button === "noButton") {
+              this.currentHeaderTextIndex =
+                (this.currentHeaderTextIndex + 1) % this.headerText.length;
+              this.currentConfirmationIndex =
+                (this.currentConfirmationIndex + 1) %
+                this.confirmationMessages.length;
+              this.yesButtonSize += 5;
+            }
+          },
+          yesButton() {
+            window.location.href = "date.html";
+          },
+        },
+        computed: {
+          currentHeaderText() {
+            return this.headerText[this.currentHeaderTextIndex];
+          },
+          currentConfirmationText() {
+            return this.confirmationMessages[this.currentConfirmationIndex];
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
